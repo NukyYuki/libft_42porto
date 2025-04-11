@@ -6,7 +6,7 @@
 /*   By: mipinhei <mipinhei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 15:39:48 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/04/09 16:22:28 by mipinhei         ###   ########.fr       */
+/*   Updated: 2025/04/11 20:09:48 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static size_t	lengths(int n)
 
 	len = 0;
 	nb = n;
+	if (nb == 0)
+		len++;
 	if (nb < 0)
 	{
 		nb = -nb;

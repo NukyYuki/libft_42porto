@@ -6,7 +6,7 @@
 /*   By: mipinhei <mipinhei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 13:12:16 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/04/08 13:52:32 by mipinhei         ###   ########.fr       */
+/*   Updated: 2025/04/11 10:15:34 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	unsigned char		*d;
 	size_t				i;
 
+	if (!dest && !src)
+		return (NULL);
 	d = (unsigned char *)dest;
 	s = (const unsigned char *)src;
 	i = 0;

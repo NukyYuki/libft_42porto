@@ -6,7 +6,7 @@
 /*   By: mipinhei <mipinhei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 10:52:33 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/04/10 17:00:39 by mipinhei         ###   ########.fr       */
+/*   Updated: 2025/04/11 10:17:40 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@ char	*ft_strdup(const char *s)
 	char	*dup;
 	int		i;
 
-	if (!s)
-		return (NULL);
 	dup = malloc(sizeof(char) * (ft_strlen(s) + 1));
-	if (dup)
+	if (!dup)
 		return (0);
 	i = 0;
 	while (s[i])

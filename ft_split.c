@@ -6,7 +6,7 @@
 /*   By: mipinhei <mipinhei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:01:37 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/04/10 17:00:58 by mipinhei         ###   ########.fr       */
+/*   Updated: 2025/04/11 11:33:17 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,18 @@ static size_t	word_len(const char *s, char c)
 	return (i);
 }
 
-static char	**free_tab(char **tab, size_t i)
+static char	**free_tab(char **tab, size_t count)
 {
-	while (i > 0)
+	size_t	i;
+
+	i = 0;
+	while (i < count)
 	{
-		free(tab[--i]);
+		free(tab[i]);
+		i++;
 	}
 	free(tab);
-	return (0);
+	return (NULL);
 }
 
 static char	**write_split(char const *s, char c, char **tab, size_t count)
@@ -63,7 +67,7 @@ static char	**write_split(char const *s, char c, char **tab, size_t count)
 			j++;
 		tab[i] = ft_substr(s, j, word_len(s + j, c));
 		if (!tab[i])
-			return (free_tab(tab, i));
+			return (free_tab(tab, count));
 		j += word_len(s + j, c);
 		i++;
 	}
@@ -79,7 +83,7 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	count = count_words(s, c);
-	tab = malloc(sizeof(char *) * (count + 1));
+	tab = ft_calloc((count + 1), sizeof(char *));
 	if (!tab)
 		return (NULL);
 	return (write_split(s, c, tab, count));

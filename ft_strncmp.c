@@ -6,7 +6,7 @@
 /*   By: mipinhei <mipinhei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 18:56:50 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/04/08 19:02:15 by mipinhei         ###   ########.fr       */
+/*   Updated: 2025/04/11 10:21:40 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		i++;
 	if (i == n)
 		return (0);
-	return ((char)s1[i] - (char)s2[i]);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

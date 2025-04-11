@@ -6,7 +6,7 @@
 /*   By: mipinhei <mipinhei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 12:21:42 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/04/09 15:47:38 by mipinhei         ###   ########.fr       */
+/*   Updated: 2025/04/11 12:13:47 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ static int	set_check(char c, char const *set)
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char		*trim;
-	size_t		i;
 	size_t		k;
 
-	i = 0;
-	while (set_check(s1[i], set))
+	if (!s1 && !set)
+		return (NULL);
+	while (set_check(*s1, set))
 		s1++;
 	k = ft_strlen(s1);
 	while (set_check(s1[k - 1], set))
