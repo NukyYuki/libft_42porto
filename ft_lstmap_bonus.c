@@ -6,60 +6,44 @@
 /*   By: mipinhei <mipinhei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 13:59:49 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/04/11 18:05:15 by mipinhei         ###   ########.fr       */
+/*   Updated: 2025/04/12 15:09:12 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_memdel(void **ap)
+static void	clearmem(void *newcontent, t_list *iter, void ((*del)(void *)))
 {
-	if (ap != 0 && *ap != 0)
-	{
-		free (*ap);
-		*ap = NULL;
-	}
+	del(newcontent);
+	ft_lstclear(&iter, del);
+	return ;
 }
 
-void	clear_list(t_list *lst)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*current;
-	t_list	*next;
-
-	if (!lst)
-		return ;
-	current = lst;
-	while (current)
-	{
-		next = current->next;
-		ft_memdel((void **)&lst);
-		current = next;
-	}
-	lst = NULL;
-}
-
-t_list	*ft_lstmap(t_list *lst, void (*f)(void *))
-{
-	t_list	*current;
+	t_list	*temp;
 	t_list	*iter;
+	void	*newcontent;
 
-	f(lst);
-	iter = ft_lstnew(lst->content);
-	if (!iter)
+	if (!lst || !f || !del)
 		return (NULL);
-	current = iter;
-	current = current->next;
-	while (current)
+	iter = NULL;
+	while (lst)
 	{
-		lst = lst->next;
-		f(lst);
-		current = lst;
-		if (!current)
+		newcontent = f(lst->content);
+		if (!newcontent)
 		{
-			clear_list(iter);
+			ft_lstclear(&iter, del);
 			return (NULL);
 		}
-		current = current->next;
+		temp = ft_lstnew(newcontent);
+		if (!temp)
+		{
+			clearmem(newcontent, iter, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&iter, temp);
+		lst = lst->next;
 	}
 	return (iter);
 }

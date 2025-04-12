@@ -6,7 +6,7 @@
 /*   By: mipinhei <mipinhei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 13:48:55 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/04/11 17:52:48 by mipinhei         ###   ########.fr       */
+/*   Updated: 2025/04/12 12:05:59 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 	while (lst)
 	{
 		f(lst->content);
-		lst++;
+		lst = lst->next;
 	}
 }

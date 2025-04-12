@@ -6,7 +6,7 @@
 /*   By: mipinhei <mipinhei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 19:01:54 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/04/11 16:48:29 by mipinhei         ###   ########.fr       */
+/*   Updated: 2025/04/12 12:43:41 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
+	t_list	*temp;
 	t_list	*current;
 
-	while (lst != NULL)
+	current = *lst;
+	while (current)
 	{
-		current = *lst;
-		del(current);
+		temp = current->next;
+		del(current->content);
 		free(current);
-		current = NULL;
-		lst++;
+		current = temp;
 	}
 	*lst = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: mipinhei <mipinhei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:01:37 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/04/11 11:33:17 by mipinhei         ###   ########.fr       */
+/*   Updated: 2025/04/12 10:51:46 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,15 @@ static size_t	count_words(char const *s, char c)
 	size_t	count;
 
 	count = 0;
-	if (s[0] != c)
-		count++;
-	i = 1;
+	i = 0;
 	while (s[i])
 	{
-		if (s[i - 1] == c && s[i] != c)
+		while (s[i] && s[i] == c)
+			i++;
+		if (s[i])
 			count++;
-		i++;
+		while (s[i] && s[i] != c)
+			i++;
 	}
 	return (count);
 }
@@ -58,6 +59,7 @@ static char	**write_split(char const *s, char c, char **tab, size_t count)
 {
 	size_t	i;
 	size_t	j;
+	size_t	len;
 
 	i = 0;
 	j = 0;
@@ -65,10 +67,11 @@ static char	**write_split(char const *s, char c, char **tab, size_t count)
 	{
 		while (s[j] == c)
 			j++;
-		tab[i] = ft_substr(s, j, word_len(s + j, c));
+		len = word_len(s + j, c);
+		tab[i] = ft_substr(s, j, len);
 		if (!tab[i])
 			return (free_tab(tab, count));
-		j += word_len(s + j, c);
+		j += len;
 		i++;
 	}
 	tab[i] = NULL;

@@ -6,7 +6,7 @@
 /*   By: mipinhei <mipinhei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 17:03:41 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/04/11 18:32:36 by mipinhei         ###   ########.fr       */
+/*   Updated: 2025/04/12 13:24:46 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,7 @@ t_list	*ft_lstnew(void *content)
 	node = malloc(sizeof(t_list));
 	if (!node)
 		return (NULL);
-	if (content == NULL)
-	{
-		node->content = NULL;
-	}
-	else
-	{
-		node->content = malloc(sizeof(content));
-		if (!node->content)
-			return (NULL);
-		node->content = content;
-	}
+	node->content = content;
 	node->next = NULL;
 	return (node);
 }

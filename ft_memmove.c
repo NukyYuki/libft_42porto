@@ -6,13 +6,14 @@
 /*   By: mipinhei <mipinhei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 13:30:39 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/04/11 13:56:38 by mipinhei         ###   ########.fr       */
+/*   Updated: 2025/04/12 15:29:39 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned char	*dstbig(unsigned char *dest, const unsigned char *src, size_t n)
+static unsigned char	*dstbig(unsigned char *dest, const unsigned char *src,
+	size_t n)
 {
 	while (n != 0)
 	{
