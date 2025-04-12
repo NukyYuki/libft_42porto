@@ -6,7 +6,7 @@
 /*   By: mipinhei <mipinhei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 12:21:42 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/04/11 12:13:47 by mipinhei         ###   ########.fr       */
+/*   Updated: 2025/04/12 18:48:34 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char		*trim;
 	size_t		k;
 
-	if (!s1 && !set)
+	if (!s1)
 		return (NULL);
 	while (set_check(*s1, set))
 		s1++;

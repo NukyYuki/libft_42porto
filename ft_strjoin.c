@@ -6,7 +6,7 @@
 /*   By: mipinhei <mipinhei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 12:02:38 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/04/09 15:49:34 by mipinhei         ###   ########.fr       */
+/*   Updated: 2025/04/12 18:47:20 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t		len;
 	size_t		i;
 
+	if (!s1)
+		return (0);
 	len = ft_strlen(s1) + ft_strlen(s2);
 	join = malloc(sizeof(char) * (len + 1));
 	if (!join)

@@ -6,7 +6,7 @@
 /*   By: mipinhei <mipinhei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 19:28:16 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/04/11 12:52:28 by mipinhei         ###   ########.fr       */
+/*   Updated: 2025/04/12 18:40:21 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	i;
 	size_t	j;
 
+	if (!len && !big)
+		return (NULL);
 	i = 0;
 	j = 0;
 	if (little[i] == '\0')
